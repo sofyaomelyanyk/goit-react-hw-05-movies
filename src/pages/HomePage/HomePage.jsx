@@ -1,5 +1,5 @@
+import { MoviesList } from 'components/MoviesList/MoviesList';
+
 export const HomePage = () => {
-   return (
-      <h2>Home</h2>
-   )
-}
+  return <MoviesList />;
+};

@@ -7,3 +7,5 @@ export const getTrandingMovies = async () => {
   const data = resp.json();
   return data;
 };
+
+
