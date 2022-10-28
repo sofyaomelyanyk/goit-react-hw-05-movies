@@ -1,8 +1,9 @@
 import { useFetchId } from 'hooks/useFetchId';
+import { MovieCard } from 'components/MovieCard/MovieCard';
 
 export const MovieDetails = () => {
-  const data = useFetchId();
-  console.log(data);
+  const movie = useFetchId();
+  console.log(movie);
 
-  return <h2>Hello </h2>;
+  return movie && <MovieCard movie={movie}  />;
 };

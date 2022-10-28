@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 export const useFetchId = () => {
   const [movie, setMovie] = useState(null);
   const { movieId } = useParams();
-  console.log()
+  console.log();
 
   useEffect(() => {
     getDetailMovie(movieId).then(setMovie);
   }, [movieId]);
 
-  return movie
+  return movie;
 };
