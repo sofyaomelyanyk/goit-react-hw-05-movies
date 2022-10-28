@@ -1,7 +1,7 @@
 import { Button } from 'components/Button/Button';
 
 export const MovieCard = ({
-  movie: { id, title, poster_path, overview, genres, vote_average },
+  movie: { title, poster_path, overview, genres, vote_average },
 }) => {
   const startUrl = 'https://image.tmdb.org/t/p/w500/';
   const userScore = Math.round(vote_average * 10);
