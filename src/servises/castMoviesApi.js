@@ -7,4 +7,3 @@ export const getCastMovie = async (id) => {
   const data = resp.json();
   return data;
 };
-// https://api.themoviedb.org/3/movie/913290/credits?api_key=762b5545ec681e46f6d7d0ae5d3e3243

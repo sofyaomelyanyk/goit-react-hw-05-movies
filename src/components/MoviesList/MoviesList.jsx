@@ -32,6 +32,7 @@ export const MoviesList = () => {
 
   return (
     <>
+      <h2>Trending today</h2>
       {isLoading && <Loader />}
       {error && <h2>{error}</h2>}
       {movies && (

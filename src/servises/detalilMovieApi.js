@@ -7,3 +7,4 @@ export const getDetailMovie = async id => {
   const data = resp.json();
   return data;
 };
+

@@ -7,3 +7,5 @@ export const getReviewsMovie = async (id) => {
   const data = resp.json();
   return data;
 };
+
+
