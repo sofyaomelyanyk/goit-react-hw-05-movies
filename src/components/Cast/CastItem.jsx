@@ -21,7 +21,7 @@ export const CastItem = ({ movie: { cast } }) => {
                     : `https://remontka.pro/images/change-or-delete-avatar-windows-10.png`
                 }
                 alt={name}
-                width="230"
+                width="200"
                 height="300"
                 onLoad={handleLoaded}
                 style={{ display: isLoaded ? 'block' : 'none' }}

@@ -1,9 +1,12 @@
-import { Outlet } from 'react-router-dom';
+
+import { SearchPage } from 'pages/SearchPage/SearchPage';
+
+
 export const MoviesPage = () => {
   return (
     <>
-      <h2 >Movies</h2>
-      <Outlet />
+      <SearchPage />
+
     </>
   );
 };

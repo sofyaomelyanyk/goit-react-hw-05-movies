@@ -11,11 +11,14 @@ export const useReviewMovie = () => {
   useEffect(() => {
     async function getMovie() {
       const message = 'Nothing found for your request!';
-      
+
       try {
         const data = await getReviewsMovie(movieId);
         setIsLoading(true);
-        setMovie(data);
+        setMovie(data.results);
+        if (data.results.length === 0) {
+          setError(message);
+        }
       } catch {
         setError(message);
       } finally {

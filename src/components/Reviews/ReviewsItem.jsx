@@ -1,7 +1,7 @@
-export const ReviewsItem = ({ movie: { results } }) => {
+export const ReviewsItem = ({ movie }) => {
   return (
     <div>
-      {results.map(({ author, content }) => {
+      {movie.map(({ author, content }) => {
         return (
           <ul key={author}>
             <li>Author: {author}</li>

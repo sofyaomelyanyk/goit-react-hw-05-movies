@@ -4,8 +4,9 @@ import { Loader } from 'components/Loader/Loader';
 
 export const Reviews = () => {
   const { movie, error, isLoading } = useReviewMovie();
+  console.log(movie)
 
-  const message = 'Sorry, server error';
+  const message = `We don't have any reviews for this movie.`;
   return (
     <>
       {isLoading && <Loader />}

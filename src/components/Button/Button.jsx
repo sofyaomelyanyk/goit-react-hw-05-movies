@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
-
-export const Button = () => {
-  return <button type="button"><Link to='/'>Go back</Link></button>;
+export const Button = ({ onClick }) => {
+  return (
+    <button onClick={onClick} type="button">
+      Go back
+    </button>
+  );
 };
