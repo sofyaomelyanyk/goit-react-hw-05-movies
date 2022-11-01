@@ -8,7 +8,7 @@ export const useFetchSearchMovies = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const searchQuery = searchParams.get('query');
+  const searchQuery = searchParams.get('queryname');
 
   const onSubmit = query => {
     setSearchParams({ queryname: query });
@@ -19,7 +19,10 @@ export const useFetchSearchMovies = () => {
 
     setIsLoading(true);
     getSearchMovies(searchQuery)
-      .then(setMovies)
+      .then(resp => {
+        const data = resp.results;
+        return setMovies(data);
+      })
       .catch(setError)
       .finally(() => setIsLoading(false));
   }, [searchQuery]);
