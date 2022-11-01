@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 export const useFetchSearchMovies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const searchQuery = searchParams.get('queryname');

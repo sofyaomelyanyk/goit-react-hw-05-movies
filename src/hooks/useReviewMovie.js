@@ -4,29 +4,27 @@ import { useEffect, useState } from 'react';
 
 export const useReviewMovie = () => {
   const [movie, setMovie] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
 
   useEffect(() => {
     async function getMovie() {
-      const message = 'Nothing found for your request!';
-
       try {
         const data = await getReviewsMovie(movieId);
         setIsLoading(true);
         setMovie(data.results);
         if (data.results.length === 0) {
-          setError(message);
+          throw new Error();
         }
       } catch {
-        setError(message);
+        setError(true);
       } finally {
         setIsLoading(false);
       }
     }
     getMovie();
-  }, [movieId, error, isLoading]);
+  }, [movieId]);
 
   return { movie, error, isLoading };
 };

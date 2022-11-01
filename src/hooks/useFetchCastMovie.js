@@ -4,27 +4,28 @@ import { useEffect, useState } from 'react';
 
 export const useFetchCastMovie = () => {
   const [movie, setMovie] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
 
   useEffect(() => {
     async function getMovie() {
-      const message = 'Nothing found for your request!';
-
       try {
         const data = await getCastMovie(movieId);
-        console.log(data);
-        setMovie(data);
+        setMovie(data.cast);
         setIsLoading(true);
+
+        if (data.cast.length === 0) {
+          throw new Error();
+        }
       } catch {
-        setError(message);
+        setError(true);
       } finally {
         setIsLoading(false);
       }
     }
     getMovie();
-  }, [movieId, error, isLoading]);
+  }, [movieId]);
 
   return { movie, error, isLoading };
 };

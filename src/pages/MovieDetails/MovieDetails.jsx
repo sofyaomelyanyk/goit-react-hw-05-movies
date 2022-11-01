@@ -5,7 +5,6 @@ import { Loader } from 'components/Loader/Loader';
 
 export const MovieDetails = () => {
   const { movie, error, isLoading } = useFetchId();
-  console.log(movie);
   const message = 'Sorry, server error';
   return (
     <>
