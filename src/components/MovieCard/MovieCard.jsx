@@ -1,7 +1,7 @@
 import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { useState } from 'react';
-import { useNavigate, useLocation, NavLink, Outlet } from 'react-router-dom';
+import { useNavigate, useLocation, NavLink } from 'react-router-dom';
 
 export const MovieCard = ({
   movie: { title, poster_path, overview, genres, vote_average },
@@ -59,7 +59,6 @@ export const MovieCard = ({
           </li>
         </ul>
       </div>
-      <Outlet />
     </>
   );
 };
