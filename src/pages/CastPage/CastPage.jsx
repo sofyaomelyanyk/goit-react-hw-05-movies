@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useFetchCastMovie } from 'hooks/useFetchCastMovie';
 import { Loader } from 'components/Loader/Loader';
 import { useState } from 'react';
@@ -44,4 +45,15 @@ export const CastPage = () => {
       )}
     </>
   );
+};
+
+CastPage.propTypes = {
+  movie: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      profile_path: PropTypes.string,
+      character: PropTypes.string,
+    })
+  ),
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { useState } from 'react';
@@ -72,4 +73,17 @@ export const MovieCard = ({
       </DetailWrapper>
     </>
   );
+};
+
+MovieCard.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      overview: PropTypes.string,
+      vote_average: PropTypes.number,
+      poster_path: PropTypes.string,
+      genres: PropTypes.string,
+    })
+  ).isRequired,
 };

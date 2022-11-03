@@ -17,14 +17,18 @@ export const useFetchSearchMovies = () => {
   useEffect(() => {
     if (!searchQuery) return;
 
-    setIsLoading(true);
-    getSearchMovies(searchQuery)
-      .then(resp => {
-        const data = resp.results;
-        return setMovies(data);
-      })
-      .catch(setError)
-      .finally(() => setIsLoading(false));
+    async function getMovie() {
+      try {
+        const data = await getSearchMovies(searchQuery);
+        setIsLoading(true);
+        setMovies(data.results);
+      } catch {
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getMovie();
   }, [searchQuery]);
 
   return { movies, error, isLoading, onSubmit };

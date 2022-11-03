@@ -1,3 +1,4 @@
+
 import { useFetchSearchMovies } from 'hooks/useFetchSearchMovies';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
@@ -53,3 +54,4 @@ export const MoviesPage = () => {
     </>
   );
 };
+
