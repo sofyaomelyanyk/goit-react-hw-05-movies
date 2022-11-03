@@ -2,6 +2,7 @@ import { useFetchSearchMovies } from 'hooks/useFetchSearchMovies';
 import { Loader } from 'components/Loader/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useState } from 'react';
+import { Form, FormInput, FormButton, ListItem } from './MoviesPage.styled';
 
 export const MoviesPage = () => {
   const { movies, error, isLoading, onSubmit } = useFetchSearchMovies();
@@ -31,8 +32,8 @@ export const MoviesPage = () => {
 
   return (
     <>
-      <form onSubmit={onSubmitForm}>
-        <input
+      <Form onSubmit={onSubmitForm}>
+        <FormInput
           type="text"
           value={query}
           name="queryname"
@@ -40,14 +41,14 @@ export const MoviesPage = () => {
           autoFocus
           onChange={onChangeName}
         />
-        <button type="submit">Search</button>
-      </form>
+        <FormButton type="submit">Search</FormButton>
+      </Form>
       {isLoading && <Loader />}
-      {error && <h2>{message}</h2>}
+      {error && <h3>{message}</h3>}
       {movies && (
-        <ul>
+        <ListItem>
           <MoviesList movies={movies} />
-        </ul>
+        </ListItem>
       )}
     </>
   );

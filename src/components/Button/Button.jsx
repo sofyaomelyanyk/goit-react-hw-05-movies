@@ -1,7 +1,9 @@
+import { ButtonBack } from './Button.styled';
+
 export const Button = ({ onClick }) => {
   return (
-    <button onClick={onClick} type="button">
+    <ButtonBack onClick={onClick} type="button">
       Go back
-    </button>
+    </ButtonBack>
   );
 };

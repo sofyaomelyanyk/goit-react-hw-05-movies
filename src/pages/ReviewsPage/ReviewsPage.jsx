@@ -1,5 +1,5 @@
 import { useReviewMovie } from 'hooks/useReviewMovie';
-
+import { ListItem, Item, TextItem } from './ReviewsPage.styled';
 import { Loader } from 'components/Loader/Loader';
 
 export const ReviewsPage = () => {
@@ -13,10 +13,12 @@ export const ReviewsPage = () => {
         <div>
           {movie.map(({ author, content }) => {
             return (
-              <ul key={author}>
-                <li>Author: {author}</li>
-                <li>{content}</li>
-              </ul>
+              <ListItem key={author}>
+                <Item>
+                  Author: <span>{author}</span>
+                </Item>
+                <TextItem>{content}</TextItem>
+              </ListItem>
             );
           })}
         </div>

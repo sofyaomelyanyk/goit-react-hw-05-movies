@@ -1,7 +1,18 @@
 import { Button } from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 import { useState } from 'react';
-import { useNavigate, useLocation, NavLink } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import {
+  CardWrapper,
+  MainText,
+  Span,
+  ListItem,
+  TextContainer,
+  ListDetail,
+  ItemDetail,
+  Link,
+  DetailWrapper,
+} from './MovieCard.styled';
 
 export const MovieCard = ({
   movie: { title, poster_path, overview, genres, vote_average },
@@ -16,17 +27,15 @@ export const MovieCard = ({
   };
   const startUrl = 'https://image.tmdb.org/t/p/w500/';
   const userScore = Math.round(vote_average * 10);
-  const onClick = () => {
-    navigate(location?.state?.from.pathname ?? '/');
-  };
+
   return (
     <>
-      <Button onClick={onClick} />
-      <div>
+      <Button onClick={() => navigate(location.state?.from ?? '/')} />
+      <CardWrapper>
         <img
           src={`${startUrl}${poster_path}`}
-          width="250"
-          height="350"
+          width="300"
+          height="450"
           alt=""
           onLoad={handleLoaded}
           style={{ display: isLoaded ? 'block' : 'none' }}
@@ -34,31 +43,33 @@ export const MovieCard = ({
         {!isLoaded && <Loader />}
         <div>
           <h1>{title}</h1>
-          <p>User score: {userScore}%</p>
-          <p>Overview</p>
-          <p>{overview}</p>
-          <p>Genres</p>
-          <ul>
+          <MainText>
+            User score: <Span>{userScore}%</Span>
+          </MainText>
+          <MainText>Overview</MainText>
+          <TextContainer>{overview}</TextContainer>
+          <MainText>Genres</MainText>
+          <ListItem>
             {genres.map(({ id, name }) => {
               return <li key={id}>{name}</li>;
             })}
-          </ul>
+          </ListItem>
         </div>
-      </div>
-      <div>
-        <ul>
-          <li>
-            <NavLink to="cast" state={location.state}>
+      </CardWrapper>
+      <DetailWrapper>
+        <ListDetail>
+          <ItemDetail>
+            <Link to="cast" state={location.state}>
               Cast
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="reviews" state={location.state}>
+            </Link>
+          </ItemDetail>
+          <ItemDetail>
+            <Link to="reviews" state={location.state}>
               Reviews
-            </NavLink>
-          </li>
-        </ul>
-      </div>
+            </Link>
+          </ItemDetail>
+        </ListDetail>
+      </DetailWrapper>
     </>
   );
 };

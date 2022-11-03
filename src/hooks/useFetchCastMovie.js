@@ -1,4 +1,4 @@
-import { getCastMovie } from 'servises/castMoviesApi';
+import { getCastMovie } from 'services/castMoviesApi';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 

@@ -1,4 +1,4 @@
-import { getDetailMovie } from 'servises/detalilMovieApi';
+import { getDetailMovie } from 'services/detalilMovieApi';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 

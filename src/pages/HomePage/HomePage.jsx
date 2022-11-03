@@ -1,7 +1,8 @@
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Loader } from 'components/Loader/Loader';
 import { useState, useEffect } from 'react';
-import { getTrandingMovies } from 'servises/trandingMoviesApi';
+import { getTrandingMovies } from 'services/trandingMoviesApi';
+import { ListItem, HomePageTitle } from './HomePage.styled';
 
 export const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -32,14 +33,16 @@ export const HomePage = () => {
 
   return (
     <>
-      <h2>Trending today</h2>
-      {isLoading && <Loader />}
-      {error && <h2>{error}</h2>}
-      {movies && (
-        <ul>
-          <MoviesList movies={movies} />
-        </ul>
-      )}
+      <div>
+        <HomePageTitle>Trending today</HomePageTitle>
+        {isLoading && <Loader />}
+        {error && <h2>{error}</h2>}
+        {movies && (
+          <ListItem>
+            <MoviesList movies={movies} />
+          </ListItem>
+        )}
+      </div>
     </>
   );
 };

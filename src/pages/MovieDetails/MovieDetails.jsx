@@ -2,6 +2,7 @@ import { useFetchId } from 'hooks/useFetchId';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { Outlet } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
+import { Suspense } from 'react';
 
 export const MovieDetails = () => {
   const { movie, error, isLoading } = useFetchId();
@@ -11,7 +12,9 @@ export const MovieDetails = () => {
       {isLoading && <Loader />}
       {error && <h2>{message}</h2>}
       {movie && <MovieCard movie={movie} />}
-      <Outlet/>
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
